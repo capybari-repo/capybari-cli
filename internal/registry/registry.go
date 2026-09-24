@@ -4,7 +4,9 @@
 package registry
 
 import (
+	dependencies "github.com/capybari/capybari-analyzer-dependencies"
 	fingerprint "github.com/capybari/capybari-analyzer-fingerprint"
+	techdetect "github.com/capybari/capybari-analyzer-tech-detect"
 	"github.com/capybari/capybari-core/analyzer"
 	"github.com/capybari/capybari-core/builtin"
 	"github.com/capybari/capybari-core/engine"
@@ -14,6 +16,8 @@ import (
 func Analyzers() []analyzer.Analyzer {
 	return append(builtin.All(),
 		fingerprint.New(),
+		techdetect.New(),
+		dependencies.New(),
 	)
 }
 

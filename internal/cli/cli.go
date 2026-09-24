@@ -484,7 +484,7 @@ func (u *ui) progress(ev engine.Event) {
 	if ev.Cached {
 		note += ", cached"
 	}
-	fmt.Fprintf(u.w, "  %s %-26s %s\n", mark, ev.Name, u.paint("90", note))
+	fmt.Fprintf(u.w, "  %s %-32s %s\n", mark, ev.Name, u.paint("90", note))
 }
 
 func (u *ui) summary(r *report.Report, written []string) {
