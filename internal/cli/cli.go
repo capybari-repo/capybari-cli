@@ -372,7 +372,7 @@ func (a *App) capabilities(args []string) int {
 		}
 		return ExitOK
 	}
-	fmt.Fprintf(a.Stdout, "%-14s %-9s %-11s %-9s %-8s %s\n", "ID", "VERSION", "TARGETS", "NETWORK", "COST", "NAME")
+	fmt.Fprintf(a.Stdout, "%-14s %-9s %-19s %-9s %-8s %s\n", "ID", "VERSION", "TARGETS", "NETWORK", "COST", "NAME")
 	for _, c := range caps {
 		var ts []string
 		for _, t := range c.Targets {
@@ -382,7 +382,7 @@ func (a *App) capabilities(args []string) int {
 		if c.Experimental() {
 			name += " (experimental)"
 		}
-		fmt.Fprintf(a.Stdout, "%-14s %-9s %-11s %-9s %-8s %s\n", c.ID, c.Version, strings.Join(ts, ","), c.Execution.Network, c.Cost, name)
+		fmt.Fprintf(a.Stdout, "%-14s %-9s %-19s %-9s %-8s %s\n", c.ID, c.Version, strings.Join(ts, ","), c.Execution.Network, c.Cost, name)
 	}
 	return ExitOK
 }

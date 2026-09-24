@@ -5,6 +5,7 @@
 package registry
 
 import (
+	aisignals "github.com/capybari/capybari-analyzer-ai-signals"
 	architecture "github.com/capybari/capybari-analyzer-architecture"
 	codehealth "github.com/capybari/capybari-analyzer-code-health"
 	dependencies "github.com/capybari/capybari-analyzer-dependencies"
@@ -12,6 +13,8 @@ import (
 	secrets "github.com/capybari/capybari-analyzer-secrets"
 	techdetect "github.com/capybari/capybari-analyzer-tech-detect"
 	vulns "github.com/capybari/capybari-analyzer-vulns"
+	websecurity "github.com/capybari/capybari-analyzer-web-security"
+	webtech "github.com/capybari/capybari-analyzer-web-tech"
 	"github.com/capybari/capybari-core/analyzer"
 	"github.com/capybari/capybari-core/builtin"
 	"github.com/capybari/capybari-core/engine"
@@ -27,6 +30,9 @@ func Analyzers() []analyzer.Analyzer {
 		secrets.New(),
 		codehealth.New(),
 		architecture.New(),
+		webtech.New(),
+		websecurity.New(),
+		aisignals.New(),
 	)
 }
 

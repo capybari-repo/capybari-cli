@@ -3,6 +3,7 @@ module github.com/capybari/capybari-cli
 go 1.27.1
 
 require (
+	github.com/capybari/capybari-analyzer-ai-signals v0.0.0
 	github.com/capybari/capybari-analyzer-architecture v0.0.0
 	github.com/capybari/capybari-analyzer-code-health v0.0.0
 	github.com/capybari/capybari-analyzer-dependencies v0.0.0
@@ -10,6 +11,8 @@ require (
 	github.com/capybari/capybari-analyzer-secrets v0.0.0
 	github.com/capybari/capybari-analyzer-tech-detect v0.0.0
 	github.com/capybari/capybari-analyzer-vulns v0.0.0
+	github.com/capybari/capybari-analyzer-web-security v0.0.0
+	github.com/capybari/capybari-analyzer-web-tech v0.0.0
 	github.com/capybari/capybari-core v0.0.0
 	github.com/capybari/capybari-schemas v0.0.0
 )
@@ -159,3 +162,9 @@ replace github.com/capybari/capybari-analyzer-vulns => ../capybari-analyzer-vuln
 replace github.com/capybari/capybari-analyzer-code-health => ../capybari-analyzer-code-health
 
 replace github.com/capybari/capybari-analyzer-architecture => ../capybari-analyzer-architecture
+
+replace github.com/capybari/capybari-analyzer-web-tech => ../capybari-analyzer-web-tech
+
+replace github.com/capybari/capybari-analyzer-web-security => ../capybari-analyzer-web-security
+
+replace github.com/capybari/capybari-analyzer-ai-signals => ../capybari-analyzer-ai-signals
