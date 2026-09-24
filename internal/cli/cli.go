@@ -476,7 +476,7 @@ func (u *ui) progress(ev engine.Event) {
 	defer u.mu.Unlock()
 	mark, note := u.paint("32", "✓"), fmt.Sprintf("%d finding(s), %s", ev.Findings, ev.Duration.Round(time.Millisecond))
 	switch ev.Status {
-	case report.StatusSkipped:
+	case report.StatusSkipped, report.StatusNotApplicable:
 		mark, note = u.paint("90", "–"), ev.Reason
 	case report.StatusFailed:
 		mark, note = u.paint("31", "✗"), ev.Reason
