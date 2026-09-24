@@ -26,7 +26,7 @@ import (
 	"github.com/capybari/capybari-core/target"
 	"github.com/capybari/capybari-schemas"
 
-	"github.com/capybari/capybari-cli/internal/registry"
+	"github.com/capybari/capybari-cli/registry"
 )
 
 // Exit codes.

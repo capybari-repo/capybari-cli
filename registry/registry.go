@@ -1,4 +1,6 @@
-// Package registry wires every capability into the unified tool. Adding a
+// Package registry wires every capability into the unified tool. It is
+// public so the hosted service runs exactly the same capability set as the
+// CLI. Adding a
 // capability to Capybari Source Intelligence means importing its analyzer
 // repository here; nothing else in the CLI changes.
 package registry
