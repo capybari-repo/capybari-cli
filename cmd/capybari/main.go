@@ -9,7 +9,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/capybari/capybari-cli/internal/cli"
+	"github.com/capybari-repo/capybari-cli/internal/cli"
 )
 
 // Set at build time: -ldflags "-X main.version=... -X main.commit=..."

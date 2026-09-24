@@ -1,20 +1,20 @@
-module github.com/capybari/capybari-cli
+module github.com/capybari-repo/capybari-cli
 
 go 1.27.1
 
 require (
-	github.com/capybari/capybari-analyzer-ai-signals v0.0.0
-	github.com/capybari/capybari-analyzer-architecture v0.0.0
-	github.com/capybari/capybari-analyzer-code-health v0.0.0
-	github.com/capybari/capybari-analyzer-dependencies v0.0.0
-	github.com/capybari/capybari-analyzer-fingerprint v0.0.0
-	github.com/capybari/capybari-analyzer-secrets v0.0.0
-	github.com/capybari/capybari-analyzer-tech-detect v0.0.0
-	github.com/capybari/capybari-analyzer-vulns v0.0.0
-	github.com/capybari/capybari-analyzer-web-security v0.0.0
-	github.com/capybari/capybari-analyzer-web-tech v0.0.0
-	github.com/capybari/capybari-core v0.0.0
-	github.com/capybari/capybari-schemas v0.0.0
+	github.com/capybari-repo/capybari-analyzer-ai-signals v0.0.0
+	github.com/capybari-repo/capybari-analyzer-architecture v0.0.0
+	github.com/capybari-repo/capybari-analyzer-code-health v0.0.0
+	github.com/capybari-repo/capybari-analyzer-dependencies v0.0.0
+	github.com/capybari-repo/capybari-analyzer-fingerprint v0.0.0
+	github.com/capybari-repo/capybari-analyzer-secrets v0.0.0
+	github.com/capybari-repo/capybari-analyzer-tech-detect v0.0.0
+	github.com/capybari-repo/capybari-analyzer-vulns v0.0.0
+	github.com/capybari-repo/capybari-analyzer-web-security v0.0.0
+	github.com/capybari-repo/capybari-analyzer-web-tech v0.0.0
+	github.com/capybari-repo/capybari-core v0.0.0
+	github.com/capybari-repo/capybari-schemas v0.0.0
 )
 
 require (
@@ -145,26 +145,26 @@ require (
 	www.velocidex.com/golang/go-ntfs v0.2.0 // indirect
 )
 
-replace github.com/capybari/capybari-core => ../capybari-core
+replace github.com/capybari-repo/capybari-core => ../capybari-core
 
-replace github.com/capybari/capybari-schemas => ../capybari-schemas
+replace github.com/capybari-repo/capybari-schemas => ../capybari-schemas
 
-replace github.com/capybari/capybari-analyzer-fingerprint => ../capybari-analyzer-fingerprint
+replace github.com/capybari-repo/capybari-analyzer-fingerprint => ../capybari-analyzer-fingerprint
 
-replace github.com/capybari/capybari-analyzer-tech-detect => ../capybari-analyzer-tech-detect
+replace github.com/capybari-repo/capybari-analyzer-tech-detect => ../capybari-analyzer-tech-detect
 
-replace github.com/capybari/capybari-analyzer-dependencies => ../capybari-analyzer-dependencies
+replace github.com/capybari-repo/capybari-analyzer-dependencies => ../capybari-analyzer-dependencies
 
-replace github.com/capybari/capybari-analyzer-secrets => ../capybari-analyzer-secrets
+replace github.com/capybari-repo/capybari-analyzer-secrets => ../capybari-analyzer-secrets
 
-replace github.com/capybari/capybari-analyzer-vulns => ../capybari-analyzer-vulns
+replace github.com/capybari-repo/capybari-analyzer-vulns => ../capybari-analyzer-vulns
 
-replace github.com/capybari/capybari-analyzer-code-health => ../capybari-analyzer-code-health
+replace github.com/capybari-repo/capybari-analyzer-code-health => ../capybari-analyzer-code-health
 
-replace github.com/capybari/capybari-analyzer-architecture => ../capybari-analyzer-architecture
+replace github.com/capybari-repo/capybari-analyzer-architecture => ../capybari-analyzer-architecture
 
-replace github.com/capybari/capybari-analyzer-web-tech => ../capybari-analyzer-web-tech
+replace github.com/capybari-repo/capybari-analyzer-web-tech => ../capybari-analyzer-web-tech
 
-replace github.com/capybari/capybari-analyzer-web-security => ../capybari-analyzer-web-security
+replace github.com/capybari-repo/capybari-analyzer-web-security => ../capybari-analyzer-web-security
 
-replace github.com/capybari/capybari-analyzer-ai-signals => ../capybari-analyzer-ai-signals
+replace github.com/capybari-repo/capybari-analyzer-ai-signals => ../capybari-analyzer-ai-signals

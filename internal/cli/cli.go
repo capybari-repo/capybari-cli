@@ -18,15 +18,15 @@ import (
 	"sync"
 	"time"
 
-	"github.com/capybari/capybari-core/analyzer"
-	"github.com/capybari/capybari-core/cache"
-	"github.com/capybari/capybari-core/engine"
-	"github.com/capybari/capybari-core/finding"
-	"github.com/capybari/capybari-core/report"
-	"github.com/capybari/capybari-core/target"
-	"github.com/capybari/capybari-schemas"
+	"github.com/capybari-repo/capybari-core/analyzer"
+	"github.com/capybari-repo/capybari-core/cache"
+	"github.com/capybari-repo/capybari-core/engine"
+	"github.com/capybari-repo/capybari-core/finding"
+	"github.com/capybari-repo/capybari-core/report"
+	"github.com/capybari-repo/capybari-core/target"
+	"github.com/capybari-repo/capybari-schemas"
 
-	"github.com/capybari/capybari-cli/registry"
+	"github.com/capybari-repo/capybari-cli/registry"
 )
 
 // Exit codes.

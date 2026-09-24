@@ -40,15 +40,15 @@ legacy-shop-api: 6 critical/high finding(s) in Security, Technology Currency. St
   Reports: capybari-report/report.html, capybari-report/report.json, capybari-report/report.md, capybari-report/sbom.cdx.json
 ```
 
-_Real output for the `node-express-legacy` fixture in [capybari-fixtures](https://github.com/capybari/capybari-fixtures)._
+_Real output for the `node-express-legacy` fixture in [capybari-fixtures](https://github.com/capybari-repo/capybari-fixtures)._
 
 ## Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/capybari/capybari-cli/main/scripts/install.sh | sh
-brew install capybari/tap/capybari
-go install github.com/capybari/capybari-cli/cmd/capybari@latest
-docker run --rm -v "$PWD:/src" ghcr.io/capybari/capybari analyze /src
+curl -fsSL https://raw.githubusercontent.com/capybari-repo/capybari-cli/main/scripts/install.sh | sh
+brew install capybari-repo/tap/capybari
+go install github.com/capybari-repo/capybari-cli/cmd/capybari@latest
+docker run --rm -v "$PWD:/src" ghcr.io/capybari-repo/capybari analyze /src
 ```
 
 Or download a binary for Linux, macOS or Windows (amd64/arm64) from the releases page. Builds are reproducible, static (no cgo) and about 30 MB.

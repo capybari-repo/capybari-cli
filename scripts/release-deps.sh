@@ -5,7 +5,7 @@
 #   capybari-schemas -> capybari-core -> capybari-analyzer-* -> capybari-cli
 set -euo pipefail
 version="${1:?usage: scripts/release-deps.sh <version>}"
-mods=$(go mod edit -json | python3 -c 'import json,sys; print("\n".join(r["Old"]["Path"] for r in json.load(sys.stdin).get("Replace") or [] if r["Old"]["Path"].startswith("github.com/capybari/")))')
+mods=$(go mod edit -json | python3 -c 'import json,sys; print("\n".join(r["Old"]["Path"] for r in json.load(sys.stdin).get("Replace") or [] if r["Old"]["Path"].startswith("github.com/capybari-repo/")))')
 for m in $mods; do
   go mod edit -dropreplace="$m" -require="$m@$version"
 done

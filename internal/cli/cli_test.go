@@ -9,8 +9,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/capybari/capybari-core/report"
-	"github.com/capybari/capybari-schemas"
+	"github.com/capybari-repo/capybari-core/report"
+	"github.com/capybari-repo/capybari-schemas"
 )
 
 const fixtures = "../../../capybari-fixtures"

@@ -1,9 +1,9 @@
 #!/bin/sh
 # Install the latest capybari release.
-#   curl -fsSL https://raw.githubusercontent.com/capybari/capybari-cli/main/scripts/install.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/capybari-repo/capybari-cli/main/scripts/install.sh | sh
 # Options (environment): CAPYBARI_VERSION=v0.1.0  CAPYBARI_INSTALL_DIR=/usr/local/bin
 set -eu
-repo="capybari/capybari-cli"
+repo="capybari-repo/capybari-cli"
 version="${CAPYBARI_VERSION:-}"
 dir="${CAPYBARI_INSTALL_DIR:-/usr/local/bin}"
 

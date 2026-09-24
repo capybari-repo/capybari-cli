@@ -35,28 +35,28 @@ signs:
     args: ["sign-blob", "--yes", "--output-signature=${signature}", "--output-certificate=${certificate}", "${artifact}"]
     artifacts: checksum
 dockers:
-  - image_templates: ["ghcr.io/capybari/capybari:{{ .Version }}-amd64"]
+  - image_templates: ["ghcr.io/capybari-repo/capybari:{{ .Version }}-amd64"]
     use: buildx
     dockerfile: Dockerfile.release
     build_flag_templates: ["--platform=linux/amd64"]
-  - image_templates: ["ghcr.io/capybari/capybari:{{ .Version }}-arm64"]
+  - image_templates: ["ghcr.io/capybari-repo/capybari:{{ .Version }}-arm64"]
     use: buildx
     goarch: arm64
     dockerfile: Dockerfile.release
     build_flag_templates: ["--platform=linux/arm64"]
 docker_manifests:
-  - name_template: ghcr.io/capybari/capybari:{{ .Version }}
-    image_templates: ["ghcr.io/capybari/capybari:{{ .Version }}-amd64", "ghcr.io/capybari/capybari:{{ .Version }}-arm64"]
-  - name_template: ghcr.io/capybari/capybari:latest
-    image_templates: ["ghcr.io/capybari/capybari:{{ .Version }}-amd64", "ghcr.io/capybari/capybari:{{ .Version }}-arm64"]
+  - name_template: ghcr.io/capybari-repo/capybari:{{ .Version }}
+    image_templates: ["ghcr.io/capybari-repo/capybari:{{ .Version }}-amd64", "ghcr.io/capybari-repo/capybari:{{ .Version }}-arm64"]
+  - name_template: ghcr.io/capybari-repo/capybari:latest
+    image_templates: ["ghcr.io/capybari-repo/capybari:{{ .Version }}-amd64", "ghcr.io/capybari-repo/capybari:{{ .Version }}-arm64"]
 brews:
   - name: capybari
-    repository: { owner: capybari, name: homebrew-tap }
-    homepage: https://github.com/capybari/capybari-cli
+    repository: { owner: capybari-repo, name: homebrew-tap }
+    homepage: https://github.com/capybari-repo/capybari-cli
     description: "Capybari Source Intelligence: a free technical X-ray of your software"
     license: Apache-2.0
     test: system "#{bin}/capybari version"
 release:
-  github: { owner: capybari, name: capybari-cli }
+  github: { owner: capybari-repo, name: capybari-cli }
   footer: |
     Verify: `sha256sum -c checksums.txt` and `cosign verify-blob` with the attached certificate.
