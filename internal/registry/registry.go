@@ -4,6 +4,8 @@
 package registry
 
 import (
+	architecture "github.com/capybari/capybari-analyzer-architecture"
+	codehealth "github.com/capybari/capybari-analyzer-code-health"
 	dependencies "github.com/capybari/capybari-analyzer-dependencies"
 	fingerprint "github.com/capybari/capybari-analyzer-fingerprint"
 	secrets "github.com/capybari/capybari-analyzer-secrets"
@@ -22,6 +24,8 @@ func Analyzers() []analyzer.Analyzer {
 		dependencies.New(),
 		vulns.New(),
 		secrets.New(),
+		codehealth.New(),
+		architecture.New(),
 	)
 }
 

@@ -3,6 +3,8 @@ module github.com/capybari/capybari-cli
 go 1.27.1
 
 require (
+	github.com/capybari/capybari-analyzer-architecture v0.0.0
+	github.com/capybari/capybari-analyzer-code-health v0.0.0
 	github.com/capybari/capybari-analyzer-dependencies v0.0.0
 	github.com/capybari/capybari-analyzer-fingerprint v0.0.0
 	github.com/capybari/capybari-analyzer-secrets v0.0.0
@@ -153,3 +155,7 @@ replace github.com/capybari/capybari-analyzer-dependencies => ../capybari-analyz
 replace github.com/capybari/capybari-analyzer-secrets => ../capybari-analyzer-secrets
 
 replace github.com/capybari/capybari-analyzer-vulns => ../capybari-analyzer-vulns
+
+replace github.com/capybari/capybari-analyzer-code-health => ../capybari-analyzer-code-health
+
+replace github.com/capybari/capybari-analyzer-architecture => ../capybari-analyzer-architecture
