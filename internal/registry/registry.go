@@ -6,7 +6,9 @@ package registry
 import (
 	dependencies "github.com/capybari/capybari-analyzer-dependencies"
 	fingerprint "github.com/capybari/capybari-analyzer-fingerprint"
+	secrets "github.com/capybari/capybari-analyzer-secrets"
 	techdetect "github.com/capybari/capybari-analyzer-tech-detect"
+	vulns "github.com/capybari/capybari-analyzer-vulns"
 	"github.com/capybari/capybari-core/analyzer"
 	"github.com/capybari/capybari-core/builtin"
 	"github.com/capybari/capybari-core/engine"
@@ -18,6 +20,8 @@ func Analyzers() []analyzer.Analyzer {
 		fingerprint.New(),
 		techdetect.New(),
 		dependencies.New(),
+		vulns.New(),
+		secrets.New(),
 	)
 }
 
