@@ -3,6 +3,8 @@ package cli
 
 import (
 	"context"
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
 	"errors"
 	"flag"
@@ -109,9 +111,9 @@ func (a *App) Run(ctx context.Context, args []string) int {
 
 type analyzeFlags struct {
 	only, skip, formats, out, as, question, baseline, failOn string
-	offline, active, noCache, quiet, stdout, verbose        bool
-	concurrency                                             int
-	timeout                                                 time.Duration
+	offline, active, noCache, quiet, stdout, verbose         bool
+	concurrency                                              int
+	timeout                                                  time.Duration
 }
 
 // parseInterspersed parses flags that may appear before or after positionals.
@@ -230,6 +232,7 @@ func (a *App) analyze(ctx context.Context, args []string, planOnly bool) int {
 			if c, err := cache.Open(p, 0); err == nil {
 				defer c.Close()
 				cfg.Cache = c
+				cfg.CacheSalt = executableHash()
 			} else if f.verbose {
 				fmt.Fprintln(a.Stderr, "cache disabled:", err)
 			}
@@ -424,6 +427,25 @@ func (a *App) cache(args []string) int {
 	}
 	fmt.Fprintln(a.Stdout, "cache cleared:", p)
 	return ExitOK
+}
+
+// executableHash identifies the running binary so cached results from a
+// different build are never reused.
+func executableHash() string {
+	p, err := os.Executable()
+	if err != nil {
+		return ""
+	}
+	f, err := os.Open(p)
+	if err != nil {
+		return ""
+	}
+	defer f.Close()
+	h := sha256.New()
+	if _, err := io.Copy(h, f); err != nil {
+		return ""
+	}
+	return hex.EncodeToString(h.Sum(nil))
 }
 
 func orDash(s string) string {
