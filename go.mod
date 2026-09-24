@@ -3,11 +3,13 @@ module github.com/capybari/capybari-cli
 go 1.27.1
 
 require (
+	github.com/capybari/capybari-analyzer-fingerprint v0.0.0
 	github.com/capybari/capybari-core v0.0.0
 	github.com/capybari/capybari-schemas v0.0.0
 )
 
 require (
+	github.com/BurntSushi/toml v1.5.0 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/mattn/go-isatty v0.0.24 // indirect
@@ -27,3 +29,5 @@ require (
 replace github.com/capybari/capybari-core => ../capybari-core
 
 replace github.com/capybari/capybari-schemas => ../capybari-schemas
+
+replace github.com/capybari/capybari-analyzer-fingerprint => ../capybari-analyzer-fingerprint

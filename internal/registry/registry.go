@@ -4,6 +4,7 @@
 package registry
 
 import (
+	fingerprint "github.com/capybari/capybari-analyzer-fingerprint"
 	"github.com/capybari/capybari-core/analyzer"
 	"github.com/capybari/capybari-core/builtin"
 	"github.com/capybari/capybari-core/engine"
@@ -11,8 +12,9 @@ import (
 
 // Analyzers returns every bundled capability.
 func Analyzers() []analyzer.Analyzer {
-	// Analyzer repositories are appended to the built-ins here.
-	return builtin.All()
+	return append(builtin.All(),
+		fingerprint.New(),
+	)
 }
 
 // New returns a registry with every bundled capability.
