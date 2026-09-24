@@ -1,0 +1,8 @@
+**/.git
+**/capybari-report
+**/dist
+**/node_modules
+*.docx
+*.md
+!capybari-*/README.md
+capybari-cli/capybari
