@@ -542,6 +542,9 @@ func (u *ui) summary(r *report.Report, written []string) {
 			if s.IsHigherWorse() {
 				note = s.Label + ", higher = riskier, " + note
 			}
+			if s.Caveat != "" {
+				note += " · " + s.Caveat
+			}
 			fmt.Fprintf(u.w, "  %-20s %s  %s\n", s.Name, u.paint(code, fmt.Sprintf("%3d/100", s.Value)), u.paint("90", note))
 		}
 	}
