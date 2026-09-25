@@ -79,11 +79,13 @@ Exit codes: `0` ok, `1` error, `2` usage, `3` `--fail-on` threshold reached.
 | Project Fingerprint | ✓ | none |
 | Technology & Version Detector (with offline end-of-life data) | ✓ | none |
 | Dependency Inventory & SBOM (CycloneDX) | ✓ | none |
-| Known Vulnerability Scanner | ✓ | `api.osv.dev`: package names and versions only |
+| Known Vulnerability Scanner (+ hallucinated-package check) | ✓ | `api.osv.dev`: package names and versions; `api.deps.dev`: direct dependency names |
 | Secret Scanner (Gitleaks engine) | ✓ | none |
 | Code Health | ✓ | none |
 | Architecture Mapper | ✓ | none |
 | Website Snapshot | website | the site itself |
+
+The **AI Slop Score** combines AI-generation signs, unfinished code, security shortcuts, dependency hygiene and organization into one meter: **0 = clean, 100 = pure slop** (higher is worse). Every other score runs 100 = best.
 
 Every report ends with a **data boundary** section that lists every host contacted, which capability contacted it, and what was sent.
 

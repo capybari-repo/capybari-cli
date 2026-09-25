@@ -518,7 +518,11 @@ func (u *ui) summary(r *report.Report, written []string) {
 		fmt.Fprintln(u.w)
 		for _, s := range r.Scores {
 			code := map[string]string{"good": "32", "fair": "33", "poor": "31"}[s.Rating]
-			fmt.Fprintf(u.w, "  %-20s %s  %s\n", s.Name, u.paint(code, fmt.Sprintf("%3d/100", s.Value)), u.paint("90", string(s.Confidence)+" confidence"))
+			note := string(s.Confidence) + " confidence"
+			if s.IsHigherWorse() {
+				note = s.Label + ", higher = more slop, " + note
+			}
+			fmt.Fprintf(u.w, "  %-20s %s  %s\n", s.Name, u.paint(code, fmt.Sprintf("%3d/100", s.Value)), u.paint("90", note))
 		}
 	}
 	shown := 0
