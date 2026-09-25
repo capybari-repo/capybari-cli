@@ -10,6 +10,8 @@ require (
 	github.com/capybari-repo/capybari-analyzer-completeness v0.0.0
 	github.com/capybari-repo/capybari-analyzer-dependencies v0.0.0
 	github.com/capybari-repo/capybari-analyzer-fingerprint v0.0.0
+	github.com/capybari-repo/capybari-analyzer-identity v0.0.0
+	github.com/capybari-repo/capybari-analyzer-links v0.0.0
 	github.com/capybari-repo/capybari-analyzer-longevity v0.0.0
 	github.com/capybari-repo/capybari-analyzer-secrets v0.0.0
 	github.com/capybari-repo/capybari-analyzer-tech-detect v0.0.0
@@ -173,6 +175,10 @@ replace github.com/capybari-repo/capybari-analyzer-commerce => ../capybari-analy
 replace github.com/capybari-repo/capybari-analyzer-longevity => ../capybari-analyzer-longevity
 
 replace github.com/capybari-repo/capybari-analyzer-completeness => ../capybari-analyzer-completeness
+
+replace github.com/capybari-repo/capybari-analyzer-identity => ../capybari-analyzer-identity
+
+replace github.com/capybari-repo/capybari-analyzer-links => ../capybari-analyzer-links
 
 replace github.com/capybari-repo/capybari-analyzer-web-security => ../capybari-analyzer-web-security
 

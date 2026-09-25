@@ -12,6 +12,8 @@ import (
 	completeness "github.com/capybari-repo/capybari-analyzer-completeness"
 	dependencies "github.com/capybari-repo/capybari-analyzer-dependencies"
 	fingerprint "github.com/capybari-repo/capybari-analyzer-fingerprint"
+	identity "github.com/capybari-repo/capybari-analyzer-identity"
+	links "github.com/capybari-repo/capybari-analyzer-links"
 	longevity "github.com/capybari-repo/capybari-analyzer-longevity"
 	secrets "github.com/capybari-repo/capybari-analyzer-secrets"
 	techdetect "github.com/capybari-repo/capybari-analyzer-tech-detect"
@@ -38,6 +40,8 @@ func Analyzers() []analyzer.Analyzer {
 		websecurity.New(),
 		commerce.New(),
 		completeness.New(),
+		identity.New(),
+		links.New(),
 		aisignals.New(),
 	)
 }
