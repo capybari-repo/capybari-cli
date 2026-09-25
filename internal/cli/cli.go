@@ -110,10 +110,10 @@ func (a *App) Run(ctx context.Context, args []string) int {
 }
 
 type analyzeFlags struct {
-	only, skip, formats, out, as, question, baseline, failOn string
-	offline, active, noCache, quiet, stdout, verbose         bool
-	concurrency                                              int
-	timeout                                                  time.Duration
+	only, skip, formats, out, as, question, baseline, failOn   string
+	offline, active, noCache, quiet, stdout, verbose, noRender bool
+	concurrency                                                int
+	timeout                                                    time.Duration
 }
 
 // parseInterspersed parses flags that may appear before or after positionals.
@@ -155,6 +155,7 @@ func (a *App) analyze(ctx context.Context, args []string, planOnly bool) int {
 	fs.BoolVar(&f.offline, "offline", false, "forbid all network access; capabilities that need it are skipped")
 	fs.BoolVar(&f.active, "active", false, "allow active website probes (only for sites you own or are authorised to test)")
 	fs.BoolVar(&f.noCache, "no-cache", false, "do not read or write the local result cache")
+	fs.BoolVar(&f.noRender, "no-render", false, "never render JavaScript-built pages in headless Chromium")
 	fs.StringVar(&f.baseline, "baseline", "", "previous JSON report; findings are marked new or existing")
 	fs.StringVar(&f.failOn, "fail-on", "", "exit with code 3 if findings at or above this severity exist (new findings only with --baseline)")
 	fs.IntVar(&f.concurrency, "concurrency", 4, "capabilities run in parallel")
@@ -274,6 +275,9 @@ func (a *App) analyze(ctx context.Context, args []string, planOnly bool) int {
 	}
 	if f.question != "" {
 		opts[analyzer.OptionQuestion] = f.question
+	}
+	if f.noRender {
+		opts["render"] = "false"
 	}
 	ui.start(res.Target)
 	st := e.NewState(res.Target, opts)

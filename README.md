@@ -61,6 +61,8 @@ capybari analyze project.zip                    # an archive (.zip, .tar, .tar.g
 capybari analyze https://github.com/org/repo    # a remote repository (needs git)
 capybari analyze https://example.com            # a website: passive checks
 capybari analyze . --offline                    # guarantee nothing leaves the machine
+capybari analyze https://app.example.com        # JavaScript-built sites are rendered if headless Chromium is installed
+capybari analyze https://app.example.com --no-render
 capybari analyze . --only vulns                 # one capability (plus what it needs)
 capybari analyze . --format sarif --stdout      # SARIF for code scanning
 capybari analyze . --baseline old/report.json --fail-on high   # CI gate on new findings
