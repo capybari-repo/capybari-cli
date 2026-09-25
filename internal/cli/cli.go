@@ -147,7 +147,7 @@ func (a *App) analyze(ctx context.Context, args []string, planOnly bool) int {
 	fs.SetOutput(a.Stderr)
 	fs.StringVar(&f.only, "only", "", "run only these capabilities (comma-separated) and what they depend on")
 	fs.StringVar(&f.skip, "skip", "", "skip these capabilities (comma-separated)")
-	fs.StringVar(&f.formats, "format", "json,md,html", "report formats to write: json, md, html, sarif")
+	fs.StringVar(&f.formats, "format", "json,md,html", "report formats to write: json, md, html, sarif, brief (half-page buyer brief)")
 	fs.StringVar(&f.out, "out", "capybari-report", "directory for report files")
 	fs.BoolVar(&f.stdout, "stdout", false, "write the first --format to stdout instead of files")
 	fs.StringVar(&f.as, "as", "", "force the target kind: repository or website")
@@ -518,13 +518,29 @@ func (u *ui) summary(r *report.Report, written []string) {
 		return
 	}
 	fmt.Fprintf(u.w, "\n%s\n", u.paint("1", r.Summary.Headline))
+	if v := r.Verdict; v != nil {
+		fmt.Fprintln(u.w)
+		for _, a := range v.Axes {
+			code := map[string]string{"good": "32", "fair": "33", "poor": "31"}[a.Rating]
+			if code == "" {
+				code = "90"
+			}
+			reason := ""
+			if len(a.Reasons) > 0 {
+				reason = a.Reasons[0].Text
+			}
+			fmt.Fprintf(u.w, "  %-7s %s  %s\n", a.Name, u.paint(code, fmt.Sprintf("%-22s", a.Label)), u.paint("90", reason))
+		}
+		fmt.Fprintf(u.w, "  %s\n", u.paint("90", fmt.Sprintf("For buyers: %d block purchase, %d raise support cost, %d cosmetic. Buyer brief: --format brief",
+			v.Impact[finding.BuyerBlocks], v.Impact[finding.BuyerSupportCost], v.Impact[finding.BuyerCosmetic])))
+	}
 	if len(r.Scores) > 0 {
 		fmt.Fprintln(u.w)
 		for _, s := range r.Scores {
 			code := map[string]string{"good": "32", "fair": "33", "poor": "31"}[s.Rating]
 			note := string(s.Confidence) + " confidence"
 			if s.IsHigherWorse() {
-				note = s.Label + ", higher = more slop, " + note
+				note = s.Label + ", higher = riskier, " + note
 			}
 			fmt.Fprintf(u.w, "  %-20s %s  %s\n", s.Name, u.paint(code, fmt.Sprintf("%3d/100", s.Value)), u.paint("90", note))
 		}

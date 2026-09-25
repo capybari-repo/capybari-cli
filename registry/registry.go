@@ -8,6 +8,7 @@ import (
 	aisignals "github.com/capybari-repo/capybari-analyzer-ai-signals"
 	architecture "github.com/capybari-repo/capybari-analyzer-architecture"
 	codehealth "github.com/capybari-repo/capybari-analyzer-code-health"
+	commerce "github.com/capybari-repo/capybari-analyzer-commerce"
 	dependencies "github.com/capybari-repo/capybari-analyzer-dependencies"
 	fingerprint "github.com/capybari-repo/capybari-analyzer-fingerprint"
 	secrets "github.com/capybari-repo/capybari-analyzer-secrets"
@@ -32,6 +33,7 @@ func Analyzers() []analyzer.Analyzer {
 		architecture.New(),
 		webtech.New(),
 		websecurity.New(),
+		commerce.New(),
 		aisignals.New(),
 	)
 }

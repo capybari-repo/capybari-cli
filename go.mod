@@ -6,6 +6,7 @@ require (
 	github.com/capybari-repo/capybari-analyzer-ai-signals v0.0.0
 	github.com/capybari-repo/capybari-analyzer-architecture v0.0.0
 	github.com/capybari-repo/capybari-analyzer-code-health v0.0.0
+	github.com/capybari-repo/capybari-analyzer-commerce v0.0.0
 	github.com/capybari-repo/capybari-analyzer-dependencies v0.0.0
 	github.com/capybari-repo/capybari-analyzer-fingerprint v0.0.0
 	github.com/capybari-repo/capybari-analyzer-secrets v0.0.0
@@ -164,6 +165,8 @@ replace github.com/capybari-repo/capybari-analyzer-code-health => ../capybari-an
 replace github.com/capybari-repo/capybari-analyzer-architecture => ../capybari-analyzer-architecture
 
 replace github.com/capybari-repo/capybari-analyzer-web-tech => ../capybari-analyzer-web-tech
+
+replace github.com/capybari-repo/capybari-analyzer-commerce => ../capybari-analyzer-commerce
 
 replace github.com/capybari-repo/capybari-analyzer-web-security => ../capybari-analyzer-web-security
 
