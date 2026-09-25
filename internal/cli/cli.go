@@ -518,6 +518,23 @@ func (u *ui) summary(r *report.Report, written []string) {
 		return
 	}
 	fmt.Fprintf(u.w, "\n%s\n", u.paint("1", r.Summary.Headline))
+	for _, s := range r.Scores {
+		if s.ID != "trust-score" {
+			continue
+		}
+		code := map[string]string{"good": "32", "fair": "33", "poor": "31"}[s.Rating]
+		fmt.Fprintf(u.w, "\n  %s  %s\n", u.paint(code+";1", fmt.Sprintf("Trust Score %d/100 · %s · %s", s.Value, s.Grade, s.Label)), u.paint("90", "higher = more trustworthy"))
+		if len(s.Ceilings) > 0 && s.Ceilings[0].Max == s.Value {
+			fmt.Fprintf(u.w, "  %s\n", u.paint("31", fmt.Sprintf("held at %d: %s", s.Value, s.Ceilings[0].Reason)))
+		}
+		for i, d := range s.Deductions {
+			if i == 6 {
+				fmt.Fprintf(u.w, "  %s\n", u.paint("90", fmt.Sprintf("… %d more in the report", len(s.Deductions)-6)))
+				break
+			}
+			fmt.Fprintf(u.w, "  %s %s\n", u.paint("31", fmt.Sprintf("%4s", fmt.Sprintf("−%d", d.Points))), d.Text)
+		}
+	}
 	if v := r.Verdict; v != nil {
 		fmt.Fprintln(u.w)
 		for _, a := range v.Axes {
