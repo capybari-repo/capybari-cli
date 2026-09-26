@@ -500,7 +500,16 @@ func (u *ui) progress(ev engine.Event) {
 	}
 	u.mu.Lock()
 	defer u.mu.Unlock()
-	mark, note := u.paint("32", "✓"), fmt.Sprintf("%d finding(s), %s", ev.Findings, ev.Duration.Round(time.Millisecond))
+	result := "0 problems found"
+	switch {
+	case ev.Capability == "web-snapshot" || ev.Capability == "inventory":
+		result = "collected evidence" // collectors never report problems
+	case ev.Findings == 1:
+		result = "1 problem found"
+	case ev.Findings > 1:
+		result = fmt.Sprintf("%d problems found", ev.Findings)
+	}
+	mark, note := u.paint("32", "✓"), fmt.Sprintf("%s, %s", result, ev.Duration.Round(time.Millisecond))
 	switch ev.Status {
 	case report.StatusSkipped, report.StatusNotApplicable:
 		mark, note = u.paint("90", "–"), ev.Reason
@@ -529,7 +538,7 @@ func (u *ui) summary(r *report.Report, written []string) {
 		}
 		for i, d := range s.Deductions {
 			if i == 6 {
-				fmt.Fprintf(u.w, "  %s\n", u.paint("90", fmt.Sprintf("… %d more in the report", len(s.Deductions)-6)))
+				fmt.Fprintf(u.w, "  %s\n", u.paint("90", fmt.Sprintf("… %d more negative impacts in the report", len(s.Deductions)-6)))
 				break
 			}
 			fmt.Fprintf(u.w, "  %s %s\n", u.paint("31", fmt.Sprintf("%4s", fmt.Sprintf("−%d", d.Points))), d.Text)
