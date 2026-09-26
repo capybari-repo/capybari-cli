@@ -573,6 +573,9 @@ func (u *ui) summary(r *report.Report, written []string) {
 			}
 			fmt.Fprintf(u.w, "  %-20s %s  %s\n", s.Name, u.paint(code, fmt.Sprintf("%3d/100", s.Value)), u.paint("90", note))
 		}
+		for _, n := range r.NotScored {
+			fmt.Fprintf(u.w, "  %-20s %s  %s\n", n.Name, u.paint("90", "  –    "), u.paint("90", "not scored: "+n.Reason))
+		}
 	}
 	shown := 0
 	for _, f := range r.Findings {
